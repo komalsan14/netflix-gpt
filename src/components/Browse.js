@@ -22,20 +22,21 @@
 
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 const Browse = () => {
-  const { loading, error } = useNowPlayingMovies();
+useNowPlayingMovies();
+ usePopularMovies();
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  
 
   return (
     <div>
       <Header />
       <MainContainer />
+      <SecondaryContainer />
       
-      {/* Render your movie list or other components here */}
     </div>
   );
 }
